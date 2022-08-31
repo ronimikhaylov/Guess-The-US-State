@@ -1,5 +1,6 @@
-# Guess-The-US-State
+# Guess-The-US-State (CODE, CSV, AND GIF ALL IN MASTER BRANCH)
 User is prompted to enter a US state. If the user guesses a correct state, the name of the US state is displayed on the map. Handles if the user gets the state wrong and if the user guesses the same state twice.</br>
+
 <img width="714" alt="Screen Shot 2022-08-31 at 2 16 15 PM" src="https://user-images.githubusercontent.com/105238029/187754364-8922b57a-3d81-4fec-8305-c41f585375d7.png"></br>
 
 
