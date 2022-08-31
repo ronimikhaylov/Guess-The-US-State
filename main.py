@@ -26,6 +26,7 @@ with open (data, 'r') as f:
 #make the turtle invisible
 turtle.hideturtle()
 turtle.penup()
+
 for key in states_dict:
     message_box = turtle.textinput(title = f'{num_states_guessed}/50 States Guessed', prompt = 'Enter a state:')
     message_box = message_box.title()
@@ -36,8 +37,23 @@ for key in states_dict:
         turtle.goto(int(states_dict[message_box][0]), int(states_dict[message_box][1]))
         turtle.write(message_box, font = ('Arial', 12, 'normal'))
         states_guessed.append(message_box)
+    elif message_box.lower() == 'exit':
+        #save the states that have been guessed and the number of states guessed
+        with open('game_summary.csv', 'w') as f:
+            states_misseed = list(set(states_dict.keys()) - set(states_guessed))
+            f.write(f'States Missed:\n')
+            
+            for state in states_misseed:
+                f.write(state + '\n')
+            f.write(f'\nStates Guessed:\n')
+            for state in states_guessed:
+                f.write(state + '\n')
+
+            f.close()
+            break
     elif message_box in states_guessed:
         messagebox.showinfo(title = 'State Already Guessed', message = 'You have already guessed this state')
+
     else:
         messagebox.showinfo(title = 'State Not Found', message = 'The state you entered was not found')
     if len(states_guessed) == 50:
